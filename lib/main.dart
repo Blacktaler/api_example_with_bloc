@@ -1,5 +1,5 @@
-import 'package:api_example/blocs/bloc/main_bloc.dart';
 import 'package:api_example/blocs/home_bloc/home_bloc.dart';
+import 'package:api_example/blocs/main_bloc/main_bloc.dart';
 import 'package:api_example/views/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

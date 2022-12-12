@@ -17,7 +17,11 @@ class HomeView extends StatelessWidget {
         itemCount: state.products.products!.length,
         itemBuilder: ((context, index) {
           final product = state.products.products![index];
-          return ListTile(leading: Text(product.id.toString()),title: Text(product.title!),);
+          return ListTile(
+            onTap: (){
+              
+            },
+            leading: Text(product.id.toString()),title: Text(product.title!),);
       }),
     ));
       }else{

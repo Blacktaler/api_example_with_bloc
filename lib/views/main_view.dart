@@ -1,4 +1,5 @@
-import 'package:api_example/blocs/bloc/main_bloc.dart';
+
+import 'package:api_example/blocs/main_bloc/main_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,7 +14,19 @@ class MainView extends StatelessWidget {
     return BlocBuilder<MainBloc, MainState>(builder: ((context, state) {
       if (state is LoadMain) {
         return Scaffold(
-          
+          appBar: AppBar(title: Text(state.counter.toString()),),
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            FloatingActionButton(onPressed: (){
+              mainBloc.add(IncrementEvent());
+             
+            },child: Icon(Icons.add),),
+            FloatingActionButton(onPressed: (){
+              mainBloc.add(DecrementEvent());
+            },child: Icon(Icons.remove),),
+
+          ],),
           body: state.pages[state.activeIndex],
           bottomNavigationBar: BottomNavigationBar(
             onTap: (value){

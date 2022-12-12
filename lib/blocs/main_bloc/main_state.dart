@@ -2,15 +2,19 @@ part of 'main_bloc.dart';
 
 @immutable
 abstract class MainState {
+
   List pages = [
     HomeView(),
-    Center(child: Text("news page"))
+    SavedDatasView()
   ];
+
 }
 
 class MainInitial extends MainState {}
 
 class LoadMain extends MainState{
   int activeIndex;
-  LoadMain(this.activeIndex);
+  int counter;
+
+  LoadMain(this.activeIndex,this.counter);
 }

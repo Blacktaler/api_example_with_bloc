@@ -5,6 +5,6 @@ abstract class SavedDatasEvent {}
 class InitialSaveData extends SavedDatasEvent{}
 
 class SaveData extends SavedDatasEvent{
-  DBProduct product;
+  Product product;
   SaveData(this.product);
 }

@@ -1,4 +1,4 @@
-import 'package:api_example/data/models/product_model.dart';
+import 'package:api_example/data/models/home_product_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -22,10 +22,10 @@ class ProductDatabase{
 
   _onCreate(Database db,int version)async{
     const textType ='TEXT NOT NULL';
-    const intType = 'INTEGER NOT NULL';
+    const intType = 'INTEGER';
     const doubleType = 'DOUBLE NOT NULL';
     await db.execute('''CREATE TABLE IF NOT EXISTS product(
-      _id INTEGER PRIMARY KEY AUTOINCREMENT
+      _id INTEGER PRIMARY KEY AUTOINCREMENT,
       id $intType,
       title $textType,
       description $textType,
@@ -42,10 +42,10 @@ class ProductDatabase{
   readAllProducts()async{
     final db =await instance.database;
     final data = await db.query('product');
-    return data.map((e) => DBProduct.fromJson(e)).toList();
+    return data.map((e) => Product.fromMap(e)).toList();
   }
 
-  create(DBProduct product)async{
+  create(Product product)async{
     final db = await instance.database;
     await db.insert('product', product.toJson()); 
   }

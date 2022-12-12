@@ -6,7 +6,7 @@ abstract class HomeEvent {}
 class SetInitialHome extends HomeEvent{}
 
 class AddtoDB extends HomeEvent{
-  DBProduct product;
+  Product product;
   AddtoDB(this.product);
 }
 // class GetApi extends HomeEvent{

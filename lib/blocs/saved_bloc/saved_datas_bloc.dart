@@ -1,6 +1,5 @@
 import 'package:api_example/data/db/product_database.dart';
 import 'package:api_example/data/models/home_product_model.dart';
-import 'package:api_example/data/models/product_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 

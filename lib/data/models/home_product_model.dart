@@ -54,7 +54,7 @@ class Product {
     String? brand;
     String? category;
     String? thumbnail;
-    List<String>? images;
+    List<dynamic>? images;
 
     factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
@@ -69,5 +69,31 @@ class Product {
         thumbnail: json["thumbnail"],
         images: List<String>.from(json["images"].map((x) => x)),
     );
-
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
+        id: json["id"],
+        title: json["title"],
+        description: json["description"],
+        price: json["price"],
+        discountPercentage: json["discountPercentage"].toDouble(),
+        rating: json["rating"].toDouble(),
+        stock: json["stock"],
+        brand: json["brand"],
+        category: json["category"],
+        thumbnail: json["thumbnail"],
+        images: jsonDecode(json["images"]) as List<dynamic>);
+    
+  
+  toJson()=>{
+      "id": id,
+      "title": title,
+      "description": description,
+      "price" : price,
+      "discountPercentage": discountPercentage,
+      "rating":rating,
+      "stock":stock,
+      "brand":brand,
+      "category":category,
+      "thumbnail":thumbnail,
+      "images":jsonEncode(images).toString()
+    };
 }

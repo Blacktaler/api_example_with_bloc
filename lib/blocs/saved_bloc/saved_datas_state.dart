@@ -6,6 +6,6 @@ abstract class SavedDatasState {}
 class SavedDatasInitial extends SavedDatasState {}
 
 class LoadData extends SavedDatasState{
-  List<DBProduct> products;
+  List<Product> products;
   LoadData(this.products);
 }
